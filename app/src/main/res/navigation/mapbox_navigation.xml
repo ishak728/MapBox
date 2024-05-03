@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mapbox_navigation"
+    app:startDestination="@id/whereToFragment2">
+    <fragment
+        android:id="@+id/whereToFragment2"
+        android:name="com.ishak.myapplication.view.WhereToFragment"
+        android:label="fragment_where_to"
+        tools:layout="@layout/fragment_where_to" >
+        <action
+            android:id="@+id/action_whereToFragment2_to_mapFragment"
+            app:destination="@id/mapFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.ishak.myapplication.view.MapFragment"
+        android:label="fragment_map"
+        tools:layout="@layout/fragment_map" />
+</navigation>
