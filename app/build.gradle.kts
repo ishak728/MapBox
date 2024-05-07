@@ -54,6 +54,11 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 
 
+    implementation("com.mapbox.navigation:android:2.19.0")
+    implementation("com.mapbox.navigation:ui-dropin:2.9.1")
+
+
+
 
     // glide
     implementation ("com.github.bumptech.glide:glide:4.16.0")

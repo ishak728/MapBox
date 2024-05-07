@@ -95,7 +95,6 @@ class WhereToFragment : Fragment() {
                     else{
                         println("latlong is nulll")
                     }
-                    println("lsdfgsdfgsdfg")
                 }
 
                 val action=WhereToFragmentDirections.actionWhereToFragment2ToMapFragment()
