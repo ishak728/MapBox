@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-<androidx.constraintlayout.widget.ConstraintLayout
+<androidx.coordinatorlayout.widget.CoordinatorLayout
 
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -13,14 +13,109 @@
 
     <com.mapbox.navigation.dropin.NavigationView
         android:id="@+id/navigationView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:accessToken="sk.eyJ1IjoiMjNpc2hhayIsImEiOiJjbHZyOThpcHcwbHFxMnFwNmRpMTJobTR4In0.no6vUZKB7I0USTnOcauAUA"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_width="411dp"
+        android:layout_height="731dp"
+        app:accessToken="sk.eyJ1IjoiMjNpc2hhayIsImEiOiJjbHZyOThpcHcwbHFxMnFwNmRpMTJobTR4In0.no6vUZKB7I0USTnOcauAUA" />
+
+    <LinearLayout
+        android:id="@+id/sheet"
+        android:layout_width="wrap_content"
+        android:layout_height="800dp"
+        android:orientation="vertical"
+        android:background="#8DF7C0"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/pickUpTextInputLayout"
+            android:layout_width="411dp"
+            android:layout_height="wrap_content"
+            android:hint="pickup?"
+            android:padding="10dp"
+            app:endIconContentDescription="Search icon"
+            app:endIconDrawable="@drawable/search_icon"
+            app:endIconMode="custom"
+            app:startIconContentDescription="Location Icon"
+            app:startIconDrawable="@drawable/location_icon">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/pickUpTextInputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/whereToTextInputLayout"
+            android:layout_width="411dp"
+            android:layout_height="wrap_content"
+            android:hint="Where to?"
+            android:padding="10dp"
+            app:endIconContentDescription="Search icon"
+            app:endIconDrawable="@drawable/search_icon"
+            app:endIconMode="custom"
+            app:startIconContentDescription="Location Icon"
+            app:startIconDrawable="@drawable/location_icon"
+            tools:layout_editor_absoluteY="305dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/whereToTextInputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:textSize="20dp"
+            android:padding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Manhattan" />
+        <View
+            android:layout_width="350dp"
+            android:layout_height="1dp"
+            android:background="@android:color/black" />
+        <TextView
+            android:textSize="20dp"
+            android:padding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Brooklyn" />
+        <View
+            android:layout_width="350dp"
+            android:layout_height="1dp"
+            android:background="@android:color/black" />
+        <TextView
+            android:textSize="20dp"
+            android:padding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="18-19 27th ave" />
+        <View
+            android:layout_width="350dp"
+            android:layout_height="1dp"
+            android:background="@android:color/black" />
+        <TextView
+            android:textSize="20dp"
+            android:padding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Central park" />
+        <View
+            android:layout_width="350dp"
+            android:layout_height="1dp"
+            android:background="@android:color/black" />
+
+
+
+
+    </LinearLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
 

@@ -4,6 +4,8 @@ plugins {
     id("androidx.navigation.safeargs.kotlin")
     kotlin("kapt")
     id("com.google.dagger.hilt.android")
+    //id("com.android.application")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -57,7 +59,16 @@ dependencies {
     implementation("com.mapbox.navigation:android:2.19.0")
     implementation("com.mapbox.navigation:ui-dropin:2.9.1")
 
+    implementation ("com.google.android.material:material:1.12.0")
 
+    implementation(platform("com.google.firebase:firebase-bom:33.0.0"))
+    implementation("com.google.firebase:firebase-analytics")
+    // Add the dependency for the Firebase Authentication library
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation("com.google.firebase:firebase-auth")
+    // Declare the dependency for the Cloud Firestore library
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation("com.google.firebase:firebase-firestore")
 
 
     // glide

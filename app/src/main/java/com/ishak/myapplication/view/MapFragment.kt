@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentManager
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.ishak.myapplication.databinding.FragmentMapBinding
 import com.ishak.myapplication.databinding.FragmentWhereToBinding
 import com.mapbox.api.directions.v5.models.RouteOptions
@@ -77,6 +79,12 @@ class MapFragment : Fragment(), OnMapLongClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        BottomSheetBehavior.from(binding.sheet).apply {
+            peekHeight=200
+            this.state= BottomSheetBehavior.STATE_COLLAPSED
+
+
+        }
 
         binding.navigationView.customizeViewOptions {
             enableMapLongClickIntercept = false

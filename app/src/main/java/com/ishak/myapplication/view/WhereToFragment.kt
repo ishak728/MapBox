@@ -10,6 +10,9 @@ import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
@@ -19,6 +22,10 @@ import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
+import com.google.firebase.Firebase
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.auth
+import com.ishak.myapplication.R
 import com.ishak.myapplication.databinding.FragmentWhereToBinding
 
 
@@ -28,11 +35,13 @@ class WhereToFragment : Fragment() {
     lateinit var binding:FragmentWhereToBinding
 
     lateinit var locationManager:LocationManager
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        setHasOptionsMenu(true)
         registerLauncher()
+        auth= Firebase.auth
     }
 
     override fun onCreateView(
@@ -60,6 +69,28 @@ class WhereToFragment : Fragment() {
                 val action=WhereToFragmentDirections.actionWhereToFragment2ToMapFragment()
                 findNavController().navigate(action)
             }
+        }
+
+        binding.bottomNavigationView.setOnItemSelectedListener {
+
+            when(it.itemId){
+                R.id.chatIcon->{
+                    val goChatFragment= WhereToFragmentDirections.actionWhereToFragment2ToChatFragment()
+                    findNavController().navigate(goChatFragment)
+                }
+                R.id.logoutIcon->{
+                    auth.signOut()
+                    val goLoginFragments=WhereToFragmentDirections.actionWhereToFragment2ToLoginFragment()
+
+                    findNavController().navigate(goLoginFragments)
+
+                }
+                R.id.homeIcon->{
+
+                }
+                else -> {}
+            }
+            true
         }
 
     }
@@ -103,6 +134,33 @@ class WhereToFragment : Fragment() {
                 Toast.makeText(requireContext(),"Permission Denied",Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+
+        inflater.inflate(R.menu.where_to_menu,menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(item.itemId==R.id.chatIcon){
+
+            val goChatFragment= WhereToFragmentDirections.actionWhereToFragment2ToChatFragment()
+            findNavController().navigate(goChatFragment)
+        }
+
+        //R.id.yazaraktan hersınıftaki view'a erişilebilir
+        if(item.itemId==R.id.logoutIcon){
+            auth.signOut()
+            val goLoginFragments=WhereToFragmentDirections.actionWhereToFragment2ToLoginFragment()
+
+            findNavController().navigate(goLoginFragments)
+
+        }
+
+
+        return super.onOptionsItemSelected(item)
     }
 
 

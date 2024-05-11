@@ -2,6 +2,7 @@ package com.ishak.myapplication.view
 
 import android.location.LocationManager
 import android.os.Bundle
+import android.view.WindowManager
 
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -22,7 +23,7 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
 
 
     }
